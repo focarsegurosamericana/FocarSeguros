@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ShieldCheck, MapPin, Phone, Mail } from "lucide-react";
 import { InstagramIcon } from "./icons";
 import { siteConfig, whatsappHref } from "@/lib/site-config";
@@ -11,14 +12,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid grid-cols-1 gap-12 border-b border-white/10 pb-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <a href="#topo" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white">
                 <ShieldCheck className="h-5 w-5" />
               </span>
               <span className="font-[family-name:var(--font-heading)] text-lg font-bold text-white">
                 Focar<span className="text-[var(--color-sky-400)]">Seguros</span>
               </span>
-            </a>
+            </Link>
             <p className="mt-4 text-sm leading-relaxed">
               Corretora de seguros em {siteConfig.city}/{siteConfig.state}.
               Proteção para o que mais importa, com atendimento de verdade.
@@ -39,9 +40,9 @@ export function Footer() {
             <ul className="mt-4 flex flex-col gap-2.5 text-sm">
               {insuranceTypes.slice(0, 6).map((t) => (
                 <li key={t.slug}>
-                  <a href="#seguros" className="hover:text-white">
+                  <Link href="/#seguros" className="hover:text-white">
                     {t.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -51,19 +52,19 @@ export function Footer() {
             <p className="text-sm font-semibold text-white">Institucional</p>
             <ul className="mt-4 flex flex-col gap-2.5 text-sm">
               <li>
-                <a href="#sobre" className="hover:text-white">
+                <Link href="/#sobre" className="hover:text-white">
                   Sobre nós
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#parceiros" className="hover:text-white">
+                <Link href="/#parceiros" className="hover:text-white">
                   Seguradoras parceiras
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contato" className="hover:text-white">
+                <Link href="/#contato" className="hover:text-white">
                   Contato
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

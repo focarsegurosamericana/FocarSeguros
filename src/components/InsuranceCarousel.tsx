@@ -30,9 +30,9 @@ export function InsuranceCarousel() {
             </h2>
           </div>
           <p className="max-w-sm text-[var(--color-slate-600)]">
-            Passe o mouse sobre um cartão para conhecer a cobertura. Qualquer
-            veículo ou bem que você tenha — ou deseja ter — com um seguro de
-            alta qualidade.
+            Toque ou passe o mouse sobre um cartão para conhecer a cobertura.
+            Qualquer veículo ou bem que você tenha — ou deseja ter — com um
+            seguro de alta qualidade.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export function InsuranceCarousel() {
                   <h3 className="text-lg font-bold leading-snug text-[var(--color-navy-900)] transition-colors duration-300 group-hover:text-white group-focus-visible:text-white">
                     {title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--color-slate-600)] opacity-0 transition-opacity duration-300 group-hover:text-white/85 group-hover:opacity-100 group-focus-visible:text-white/85 group-focus-visible:opacity-100">
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--color-slate-600)] opacity-100 transition-opacity duration-300 group-hover:text-white/85 group-hover:opacity-100 group-focus-visible:text-white/85 group-focus-visible:opacity-100 sm:opacity-0">
                     {description}
                   </p>
                 </div>
@@ -73,7 +73,7 @@ export function InsuranceCarousel() {
             ))}
           </div>
 
-          <div className="mt-2 flex items-center justify-end gap-3">
+          <div className="mt-2 hidden items-center justify-end gap-3 sm:flex">
             <button
               type="button"
               onClick={() => scrollByCard(-1)}

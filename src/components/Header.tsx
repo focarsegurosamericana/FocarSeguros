@@ -2,17 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X, ShieldCheck } from "lucide-react";
+import { Menu, X, ShieldCheck, MousePointerClick } from "lucide-react";
 import { WhatsAppIcon } from "./icons";
 import { whatsappHref } from "@/lib/site-config";
 
 const navLinks = [
   { href: "/#seguros", label: "Seguros" },
-  { href: "/cotacao", label: "Cotação Online" },
   { href: "/#sobre", label: "Sobre nós" },
   { href: "/#parceiros", label: "Parceiros" },
   { href: "/#contato", label: "Contato" },
 ];
+
+const ctaButtonClass =
+  "inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-blue-600)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[var(--color-blue-700)] hover:shadow-md";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,7 +52,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -62,22 +64,26 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <Link href="/cotacao" className={ctaButtonClass}>
+            <MousePointerClick className="h-4 w-4" />
+            Cotação Online
+          </Link>
           <a
             href={whatsappHref()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--color-navy-900)] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[var(--color-blue-700)] hover:shadow-md"
+            className={ctaButtonClass}
           >
             <WhatsAppIcon className="h-4 w-4" />
-            Fazer cotação
+            Fazer cotação com consultor - WhatsApp
           </a>
         </div>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--color-navy-900)] md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--color-navy-900)] lg:hidden"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
         >
@@ -86,7 +92,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-[var(--color-mist-200)] bg-white px-5 pb-6 pt-2 md:hidden">
+        <div className="border-t border-[var(--color-mist-200)] bg-white px-5 pb-6 pt-2 lg:hidden">
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
@@ -98,14 +104,22 @@ export function Header() {
                 {link.label}
               </a>
             ))}
+            <Link
+              href="/cotacao"
+              onClick={() => setOpen(false)}
+              className={`mt-2 ${ctaButtonClass} py-3`}
+            >
+              <MousePointerClick className="h-4 w-4" />
+              Cotação Online
+            </Link>
             <a
               href={whatsappHref()}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-navy-900)] px-5 py-3 text-sm font-semibold text-white"
+              className={`mt-2 ${ctaButtonClass} py-3 text-center`}
             >
-              <WhatsAppIcon className="h-4 w-4" />
-              Fazer cotação
+              <WhatsAppIcon className="h-4 w-4 shrink-0" />
+              Fazer cotação com consultor - WhatsApp
             </a>
           </nav>
         </div>

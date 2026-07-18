@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Menu, X, ShieldCheck } from "lucide-react";
 import { WhatsAppIcon } from "./icons";
 import { whatsappHref } from "@/lib/site-config";
 
 const navLinks = [
-  { href: "#seguros", label: "Seguros" },
-  { href: "#sobre", label: "Sobre nós" },
-  { href: "#parceiros", label: "Parceiros" },
-  { href: "#contato", label: "Contato" },
+  { href: "/#seguros", label: "Seguros" },
+  { href: "/cotacao", label: "Cotação Online" },
+  { href: "/#sobre", label: "Sobre nós" },
+  { href: "/#parceiros", label: "Parceiros" },
+  { href: "/#contato", label: "Contato" },
 ];
 
 export function Header() {
@@ -39,14 +41,14 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#topo" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-navy-900)] text-white">
             <ShieldCheck className="h-5 w-5" strokeWidth={2.4} />
           </span>
           <span className="font-[family-name:var(--font-heading)] text-xl font-bold tracking-tight text-[var(--color-navy-900)]">
             Focar<span className="text-[var(--color-sky-500)]">Seguros</span>
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-9 md:flex">
           {navLinks.map((link) => (

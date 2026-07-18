@@ -1,6 +1,17 @@
-import { Home, Car as CarIcon, Heart, MapPin, Sparkles } from "lucide-react";
+import Link from "next/link";
+import {
+  Home,
+  Car as CarIcon,
+  Heart,
+  MapPin,
+  Sparkles,
+  MousePointerClick,
+} from "lucide-react";
 import { WhatsAppIcon } from "./icons";
 import { whatsappHref, siteConfig } from "@/lib/site-config";
+
+const heroCtaClass =
+  "inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-blue-600)] px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-[var(--color-blue-600)]/20 transition-all hover:-translate-y-0.5 hover:bg-[var(--color-blue-700)] hover:shadow-xl";
 
 const benefits = [
   {
@@ -48,20 +59,18 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link href="/cotacao" className={heroCtaClass}>
+              <MousePointerClick className="h-5 w-5" />
+              Cotação Online
+            </Link>
             <a
               href={whatsappHref()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-navy-900)] px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-[var(--color-navy-900)]/20 transition-all hover:-translate-y-0.5 hover:bg-[var(--color-blue-700)] hover:shadow-xl"
+              className={heroCtaClass}
             >
               <WhatsAppIcon className="h-5 w-5" />
-              Fazer cotação agora
-            </a>
-            <a
-              href="#seguros"
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[var(--color-mist-200)] px-7 py-3.5 text-base font-semibold text-[var(--color-navy-900)] transition-colors hover:border-[var(--color-sky-400)] hover:text-[var(--color-blue-700)]"
-            >
-              Ver tipos de seguro
+              Fazer cotação com consultor - WhatsApp
             </a>
           </div>
 

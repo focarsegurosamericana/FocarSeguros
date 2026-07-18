@@ -5,12 +5,10 @@ export const siteConfig = {
   name: "Focar Seguros",
   city: "Americana",
   state: "SP",
-  // PLACEHOLDER — trocar pelo número real (formato: 55 + DDD + número)
-  whatsappNumber: "5519999999999",
+  whatsappNumber: "5519982078899",
   whatsappMessage:
     "Olá! Vim pelo site e quero fazer uma cotação de seguro.",
-  // PLACEHOLDER — trocar pelo e-mail real
-  email: "contato@focarseguros.com.br",
+  email: "focarseguros@proton.me",
   // PLACEHOLDER — trocar pelo endereço real
   address: "Americana, SP",
   // PLACEHOLDER — trocar pelo horário real

@@ -1,16 +1,22 @@
-// Placeholder até recebermos a lista real de seguradoras parceiras e seus logos.
-// Basta trocar o array `partners` por { name, logoSrc } quando os logos chegarem.
-
-import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 const partners = [
-  "Seguradora Parceira",
-  "Seguradora Parceira",
-  "Seguradora Parceira",
-  "Seguradora Parceira",
-  "Seguradora Parceira",
-  "Seguradora Parceira",
+  { name: "Suhai Seguradora", logo: "/partners/suhai-seguradora.png" },
+  { name: "Bradesco Seguros", logo: "/partners/bradesco-seguros.png" },
+  { name: "Azul Seguros", logo: "/partners/azul-seguros.png" },
+  { name: "Porto Seguro", logo: "/partners/porto-seguro.png" },
+  { name: "Mapfre", logo: "/partners/mapfre.png" },
+  { name: "Allianz", logo: "/partners/allianz.png" },
+  { name: "HDI Seguros", logo: "/partners/hdi-seguros.png" },
+  { name: "Itaú Seguros", logo: "/partners/itau-seguros.png" },
+  { name: "Marítima Seguros", logo: "/partners/maritima-seguros.png" },
+  { name: "Tokio Marine Seguros", logo: "/partners/tokio-marine.png" },
+  { name: "SulAmérica Seguros", logo: "/partners/sulamerica.png" },
+  { name: "Sompo Seguros", logo: "/partners/sompo-seguros.png" },
 ];
+
+// Duplicamos a lista para o loop do marquee ficar contínuo (a animação anda 50%).
+const track = [...partners, ...partners];
 
 export function Partners() {
   return (
@@ -20,18 +26,25 @@ export function Partners() {
           Trabalhamos com as principais seguradoras do mercado
         </p>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {partners.map((name, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-6 text-center transition-colors hover:border-white/25 hover:bg-white/10"
-            >
-              <ShieldCheck className="h-6 w-6 text-white/40" />
-              <span className="text-xs font-medium text-white/50">
-                {name}
-              </span>
-            </div>
-          ))}
+        <div className="relative mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="animate-marquee flex w-max items-center gap-4">
+            {track.map(({ name, logo }, i) => (
+              <div
+                key={`${name}-${i}`}
+                className="flex h-20 w-40 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white p-4 shadow-sm sm:h-24 sm:w-48"
+              >
+                <div className="relative h-full w-full">
+                  <Image
+                    src={logo}
+                    alt={name}
+                    fill
+                    sizes="192px"
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
